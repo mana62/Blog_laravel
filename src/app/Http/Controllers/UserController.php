@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
+use App\Models\Comment;
 
 class UserController extends Controller
 {
     public function relate(Request $request)
 
 {
-$items = Post::with('Post')->get();
-return view('posts', ['items' => $items]);
+    $posts = Post::with('comments')->get();
 
-$items = Comment::with('Comment')->get();
-return view('posts', ['items' => $items]);
+    $comments = Comment::with('user')->get();
+
+    return view('posts', ['posts' => $posts, 'comments' => $comments]);
 }
 
 }

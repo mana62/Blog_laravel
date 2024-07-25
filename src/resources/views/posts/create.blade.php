@@ -1,7 +1,7 @@
-@extends('layouts/app')
+@extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/create.css">
 @endsection
 
 @section('content')
@@ -25,37 +25,20 @@
 
 <h2>Blog記事作成</h2>
 <table class="blog">
-    <form class="blog__create" action="" method="post">
+    <form class="blog__create" action="{{ route('posts.store') }}" method="post">
         @csrf
 
-        <tr>
-            <th>タイトル</th>
-        </tr>
-        <tr>
-            <td>内容</td>
-        </tr>
+        <div class="form-group">
+        <label for="title">タイトル</label>
+        <input type="text" name="title" value="{{ old('title') }}" class="form-item">
+    </div>
 
-        <tr>
-            <div class="blog__create-ttl">
-                <th><input class="blog__create-ttl-input" type="text" name="ttl" value="{{ old('ttl') }}">
-            </div>ブログのタイトル</th>
-        </tr>
+    <div class="form-group">
+        <label for="content">コンテンツ</label>
+        <textarea name="content" class="form-item">{{ old('content') }}</textarea>
+    </div>
 
-        <tr>
-            <div class="blog__create-content">
-                <th><textarea class="blog__create-content-textarea" name="content"
-                        value="{{ old('content') }}"></textarea>
-            </div>ブログの内容</th>
-        </tr>
+    <button type="submit" class="btn btn-primary">作成する</button>
+</form>
 
-        <div class="blog__create-button">
-            <button class="blog__create-content-submit" type="submit">作成する</button>
-        </div>
-    </form>
-</table>
-
-
-
-
-
-@endsectionF
+@endsection

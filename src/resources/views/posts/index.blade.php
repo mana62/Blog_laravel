@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts.app')
 
 @section('css')
 <link rel="stylesheet" href="css/index.css">
@@ -10,36 +10,38 @@
 <article class="blog__article">
 
     <div class="blog__article-lists">
-        <form class="form-article" action="" method="post">
-            @csrf
+    @foreach ($posts as $post)
 
-            <div class="article__ttl">
-                <input class="article__ttl-input" name="ttl" type="text" value="記事タイトル">
+    <div class="article__ttl">
+                {{ $post->title }}
             </div>
 
-            <div class="article__content">
-                <input class="article__content-input" name="content" type="text" value="記事内容">
-            </div>
+                <div class="article__content">
+                    {{ $post->content }}
+                </div>
+
+                <a href="{{ route('posts.show', $post->id) }}">詳細を見る</a>
+            <a href="{{ route('posts.edit', $post->id) }}">編集する</a>
+            <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit">削除</button>
+            </form>
+        @endforeach
     </div>
-    </form>
 </article>
 
 <aside class="blog__aside">
     <div class="blog__aside-content">
-        <form class="form-aside" action="" method="post">
+        <form class="form-aside" action="{{ route('posts.index') }}" method="get">
             @csrf
 
-            <div class="aside-content">
-                <input class="aside-content-input" type="text" name="search" value="サイト内検索">サイト内検索
-            </div>
-            F
-            <div class="aside-img">
-                <img src="{{--好きな画像--}}" alt="">
-            </div>
+            <input class="aside-content-input" type="text" name="search" value="サイト内検索">
+            <button type="submit">検索</button>
+        </form>
+        <div class="aside-img">
+            <img src="your-image.jpg" alt="">
+        </div>
     </div>
-    </form>
 </aside>
-
-
-
-@endsectionF
+@endsection
