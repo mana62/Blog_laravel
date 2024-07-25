@@ -1,0 +1,38 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    background: yellow;
+    max-width: 1230px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__inner {
+    width: 80px;
+    padding: 10px  60px;
+}
+
+.header__logo {
+    font-size: 30px;
+    color: skyblue;
+    font-weight: bold;
+}
+
+.nav {
+    width: 80px;
+}
+
+.nav__lists {
+    display: flex;
+    padding: 10px;
+}
+
+.nav__lists-item {
+    color: skyblue;
+    font-weight: bold;
+    font-size: 20px;
+}
