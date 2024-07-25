@@ -1,0 +1,15 @@
+h2 {
+    margin: 0 auto;
+}
+
+.blog__article {
+    max-width: 800px;
+    background: pink;
+    border: 1px solid palevioletred;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.form-article {
+    width: 400px;
+}
