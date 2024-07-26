@@ -10,13 +10,13 @@
 <article class="blog__article">
 
     <div class="blog__article-lists">
-    @foreach ($posts as $post)
+    @foreach ($posts as $post) {{--indexメソッドの部分を配列で返す--}}
 
     <div class="article__ttl">
-                {{ $post->title }}
+                {{ $post->title }}{{--投稿されたpostの中のtitleを表示--}}
             </div>
 
-                <div class="article__content">
+                <div class="article__content">{{--投稿されたpostの中のcontentを表示--}}
                     {{ $post->content }}
                 </div>
 
@@ -32,15 +32,15 @@
 </article>
 
 <aside class="blog__aside">
-    <div class="blog__aside-content">
+    <div style="text-align: right;" class="blog__aside-content">
         <form class="form-aside" action="{{ route('posts.index') }}" method="get">
             @csrf
 
             <input class="aside-content-input" type="text" name="search" value="サイト内検索">
-            <button type="submit">検索</button>
+            <button style="width:60px" type="submit">検索</button>
         </form>
         <div class="aside-img">
-            <img src="your-image.jpg" alt="">
+            <img src="img/cake.jpg" alt="">
         </div>
     </div>
 </aside>

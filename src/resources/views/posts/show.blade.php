@@ -12,19 +12,20 @@
     <p>{{ $post->content }}</p>
 
     <h2>コメント</h2>
-    @foreach ($post->comments as $comment)
+    @foreach ($post->comments as $comment){{--全コメントを取得して配列にして表示--}}
         <div class="card">
             <div class="card-body">
                 <p>{{ $comment->content }}</p>
                 <p class="text-muted">投稿者: {{ $comment->user->name }} | 投稿日: {{ $comment->created_at }}</p>
-                @can('delete', $comment)
+                @can('delete', $comment){{--@canは削除する権限がある人のみに表示される--}}
                     <form action="{{ route('comments.destroy', $comment->id) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="ttl-submit">削除</button>
                     </form>
                 @endcan
-                @can('update', $comment)
+
+                @can('update', $comment){{--@canは削除する権限がある人のみに表示される--}}
                     <a href="{{ route('comments.edit', $comment->id) }}" class="card-edit">編集</a>
                 @endcan
             </div>

@@ -26,22 +26,23 @@ class CommentController extends Controller
     public function edit(Comment $comment)
     {
         $this->authorize('update', $comment);
-
-        return view('comments.edit', compact('comment'));
+//$this->authorizeで権限があるかをチェックできる
+        return view('comments.edit', compact('comment'));//編集のページにビュー
     }
 
     // コメントを更新
     public function update(Request $request, Comment $comment)
     {
-        $this->authorize('update', $comment);
+        $this->authorize('update', $comment); //$this->authorizeで権限があるかをチェックできる
 
         $request->validate([
             'content' => 'required',
         ]);
 
-        $comment->update($request->only('content'));
+        $comment->update($request->only('content'));//コメントを更新
 
         return redirect()->route('posts.show', $comment->post_id)->with('message', 'コメントが更新されました');
+        //コメントを更新したページをビュー
     }
 
     // コメントを削除
