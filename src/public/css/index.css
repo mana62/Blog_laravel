@@ -1,15 +1,73 @@
 h2 {
-    margin: 0 auto;
+    margin: 80px 0 20px 20px;
+    color: rgb(12, 180, 246);
+    text-align: center;
+    width: 900px;
+    font-size: 30px;
+    background: pink;
 }
 
 .blog__article {
-    max-width: 800px;
-    background: pink;
+    display: inline-block;
+    width: 900px;
     border: 1px solid palevioletred;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.blog__article-lists {
     border-radius: 5px;
     text-align: left;
 }
 
-.form-article {
+.article__ttl {
+}
+
+.blog__aside {
+    width: 800px;
+    margin: 0 1000px;
+}
+
+.blog__aside-content {
+    padding: 10px;
+}
+
+.form-aside {
     width: 400px;
+}
+
+.aside-content-input {
+    display: inline-block;
+    width: 300px;
+    height: 40%;
+    border: 1px solid palevioletred;
+    border-radius: 3px;
+    padding: 10px;
+    text-align: center;
+    background: pink;
+    color: rgb(44, 181, 235);
+    font-weight: bold;
+}
+
+button {
+    display: inline-block;
+    border: 1px solid palevioletred;
+    border-radius: 3px;
+    padding: 8px;
+    text-align: center;
+    background: pink;
+    color: rgb(44, 181, 235);
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.aside-img {
+    width: 300px;
+    margin: 0 40px;
+    margin-top: 50px;
+}
+
+img {
+    width: 100%;
+    text-align: centers;
 }

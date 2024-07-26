@@ -37,7 +37,9 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        Post::create($request->only('title', 'content'));
+        $postData = $request->only('title', 'content');
+        $postData['user_id'] = auth()->id();  //auth()->id()はログインしているユーザーのid情報
+        Post::create($postData); //モデルから$postdataの情報を受け取りcreateメソッドで作成して保存
         return redirect()->route('posts.index')->with('message', '記事が作成されました');
     }
 
@@ -72,7 +74,9 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        $post->update($request->only('title', 'content'));
+        $postData = $request->only('title', 'content');
+        $postData['user_id'] = auth()->id();
+        $post->update($postData);
         return redirect()->route('posts.index')->with('message', '記事を更新しました');
     }
 

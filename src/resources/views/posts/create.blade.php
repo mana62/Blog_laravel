@@ -38,7 +38,7 @@
         <textarea name="content" class="form-item">{{ old('content') }}</textarea>
     </div>
 
-    <button type="submit" class="btn btn-primary">作成する</button>
+    <button style="border:none" type="submit" class="btn btn-primary">作成する</button>
 </form>
 
 @endsection

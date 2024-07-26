@@ -5,34 +5,39 @@ a {
 
 .header {
     background: yellow;
-    max-width: 1230px;
+    max-width: 1500px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .header__inner {
-    width: 80px;
-    padding: 10px  60px;
+   padding: 10px 20px;
 }
 
 .header__logo {
-    font-size: 30px;
-    color: skyblue;
+    font-size: 40px;
+    color: rgb(12, 180, 246);
     font-weight: bold;
+    margin-left: 40px;
 }
 
 .nav {
-    width: 80px;
+    padding: 10px 20px;
 }
 
 .nav__lists {
     display: flex;
-    padding: 10px;
+    
 }
 
 .nav__lists-item {
-    color: skyblue;
+    color: rgb(12, 180, 246);
     font-weight: bold;
     font-size: 20px;
+    padding: 10px 20px;
+}
+
+.nav__lists-item:last-child {
+    margin-right: 20px;
 }
